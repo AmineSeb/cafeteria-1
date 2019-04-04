@@ -14,3 +14,14 @@ We will go with the Layered Architectural pattern. In order to make separate bus
 ## Design patterns 
 - MVC: Because it goes best with the layered architecture.
 - Singleton: To have one instance of the DAO.
+
+## Functional Rquirements :
+- Users should be able to make orders.
+- Users should be able to know how much is their total
+- The cafeteria Staff should get notified when an order arives and decide either to decline it or accept it.
+
+
+## Non Functional Requirements:
+- The system should be easy to use.
+- The response of the cafeteria staff should get to the users in no time.
+- The System should keep trace of the history of orders.
