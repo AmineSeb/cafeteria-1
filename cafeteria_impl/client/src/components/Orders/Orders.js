@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import Nav from '../Nav';
 
-export class Home extends Component {
+export class Orders extends Component {
   render() {
     return (
       <div>
-        <Nav/>
+        These are your orders
       </div>
     )
   }
 }
 
-export default Home
+export default Orders

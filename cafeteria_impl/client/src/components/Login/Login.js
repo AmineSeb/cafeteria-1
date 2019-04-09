@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import Nav from '../Nav';
 
-export class Home extends Component {
+export class Login extends Component {
   render() {
     return (
       <div>
-        <Nav/>
+        this is the login shit:
       </div>
     )
   }
 }
 
-export default Home
+export default Login
