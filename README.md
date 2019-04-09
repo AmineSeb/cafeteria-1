@@ -17,7 +17,8 @@ We will go with the Layered Architectural pattern. In order to make separate bus
 
 ## Functional Rquirements :
 - Users should be able to make orders.
-- Users should be able to know how much is their total
+- Users should be able to deposit money on the cafeteria and add to their balance.
+- Users should be able to know how much is their total order is. 
 - The cafeteria Staff should get notified when an order arives and decide either to decline it or accept it.
 
 
@@ -25,3 +26,4 @@ We will go with the Layered Architectural pattern. In order to make separate bus
 - The system should be easy to use.
 - The response of the cafeteria staff should get to the users in no time.
 - The System should keep trace of the history of orders.
+- altering with the balance of customers should be secured. 
