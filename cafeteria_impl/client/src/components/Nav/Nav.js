@@ -1,38 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import {Link} from 'react-router-dom'
-import { Header, NavSection, NavItem,Content } from './styles';
+import { Logo } from './styles';
  
-export class Nav extends Component {
-    state = { authenticated:true }
-    
-    //TODO: Let's Leave the Authentication for later
 
-  render() {
-      const {authenticated} = this.state;
-      const authenticationControl = authenticated ? (
-          <button>Logout</button>
-      ):(
-          <Link to="/login">Login</Link>
-      )
-            
+export class Nav extends Component {
+  render() {           
     return (
-      <div>
-        <Header>
-            <Content>
-                <NavSection>
-                    <NavItem>
-                        <Link to="/">Home</Link>
-                    </NavItem>
-                    <NavItem>
-                        {authenticated?<Link to="/orders">My Order</Link>:null}
-                    </NavItem>
-                    <NavItem>
-                        authenticationControl
-                    </NavItem>
-                </NavSection>
-            </Content>
-        </Header>
-      </div>
+        <Fragment>
+            <div className='navbar navbar-expand-lg navbar-light sticky bg-light'>
+                <Link to="/">
+                    <Logo alt='logo' src={require('../../assets/logo.png')}/>
+                </Link>
+                <div className='collapse navbar-collapse'>
+                    <ul className='navbar-nav ml-auto'> 
+                        <li className='nav-item'>
+                            <Link to='/' >HOME</Link>
+                        </li>
+                        <Link to='/login' className='nav-item'>Login</Link>
+                    </ul>
+
+                </div>
+            </div>
+        </Fragment>
     )
   }
 }
