@@ -1,17 +1,23 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom/cjs/react-router-dom";
-import Login from "../../components/Login";
 import Home from "../Home";
-import NavigationBar from "../../components/Nav";
+import {NavigationBar} from "../../components";
+import AdminMain from "../AdminMain";
+import UserMain from "../UserMain";
+
+//This is going to be the distributer of the State
 export class index extends Component {
+
+
   render() {
     return (
-        
+        <>
+        <NavigationBar />
         <Router>
-            <NavigationBar />
             <Route path="/" exact component={Home}/>
-            <Route path="/login" exact component={Login}/>
+            <Route path="/order" exact component={this.props.type==='ADMIN'? AdminMain:UserMain}/>
         </Router>
+        </>
     )};
 }
 
