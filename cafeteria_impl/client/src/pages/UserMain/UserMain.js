@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Grid } from '@material-ui/core';
+import { Grid, Typography, IconButton, Button } from '@material-ui/core';
 import { Menu, Orders } from '../../components';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 export class UserMain extends Component {
     //This is the Right place for the State!!!!!!!
@@ -18,24 +19,49 @@ export class UserMain extends Component {
         }
         this.addItemToOrder = this.addItemToOrder.bind(this);
     }
-    addItemToOrder(e){
-        this.setState({
-            MyOrder:[...this.state.MyOrder,e.target.value]
+
+    addItemToOrder(item){
+        let myItem = {...item,num:"1"};
+        let exist = false;
+        //lets add the 
+        this.state.MyOrder.map(obj=>{
+            if(obj.text===myItem.text){
+                obj.num++;
+                exist=true;
+                this.setState({MyOrder:[...this.state.MyOrder]});
+            }
         })
-        console.log(`Item ${e.target.value} Added to Order`);
+        if(!exist){
+            this.setState({
+                MyOrder:[...this.state.MyOrder,myItem]
+            })        
+        }
+        console.log(this.state.MyOrder);
     }
 
   render() {
+      const total = this.state.MyOrder.reduce((a,b)=>a+b.num*b.price,0)
     return (
       <>
-        <Grid container spacing={24}>
-            <Grid item sm={12}>
+        <Grid container
+                direction="row"
+                justify="space-evenly"
+                alignItems="baseline">
+            <Grid item sm={6}>
+                    <center><Typography variant="h6">Choose From the Menu</Typography></center>
                 <Menu TheMenu={this.state.TheMenu} add={this.addItemToOrder}/>
             </Grid>
-            <Grid item sm={12}>
+            <Grid item sm={6}>
+                <center><Typography variant="h6">This is Your order</Typography></center>
                 <Orders MyOrder={this.state.MyOrder}/>
             </Grid>
-        </Grid> 
+        </Grid>
+        <center>
+            <Button variant="raised" size="large">
+                PayCheck {total} Dh
+                <AddShoppingCartIcon/>
+            </Button>
+        </center>
       </>
     )
   }
