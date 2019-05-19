@@ -4,6 +4,7 @@ import Home from "../Home";
 import {NavigationBar} from "../../components";
 import AdminMain from "../AdminMain";
 import UserMain from "../UserMain";
+import User from "../User";
 
 //This is going to be the distributer of the State
 export class index extends Component {
@@ -15,7 +16,7 @@ export class index extends Component {
         <NavigationBar />
         <Router>
             <Route path="/" exact component={Home}/>
-            <Route path="/order" exact component={this.props.type==='ADMIN'? AdminMain:UserMain}/>
+            <Route path="/order" exact component={this.props.type==='ADMIN'? AdminMain:User}/>
         </Router>
         </>
     )};
