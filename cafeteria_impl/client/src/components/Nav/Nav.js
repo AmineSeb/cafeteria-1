@@ -1,29 +1,47 @@
-import React, { Component, Fragment } from 'react'
-import {Link} from 'react-router-dom'
-import { Logo } from './styles';
- 
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
-export class Nav extends Component {
-  render() {           
+const styles = {
+    root: {
+        flexGrow: 1,
+    },
+    grow: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginLeft: -12,
+        marginRight: 20,
+    },
+};
+
+function ButtonAppBar(props) {
+    const { classes } = props;
     return (
-        <Fragment>
-            <div className='navbar navbar-expand-lg navbar-light sticky bg-light'>
-                <Link to="/">
-                    <Logo alt='logo' src={require('../../assets/logo.png')}/>
-                </Link>
-                <div className='collapse navbar-collapse'>
-                    <ul className='navbar-nav ml-auto'> 
-                        <li className='nav-item'>
-                            <Link to='/' >HOME</Link>
-                        </li>
-                        <Link to='/login' className='nav-item'>Login</Link>
-                    </ul>
-
-                </div>
-            </div>
-        </Fragment>
-    )
-  }
+        <div className={classes.root}>
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" color="inherit" className={classes.grow}>
+                        Welcome To The Cafeteria
+          </Typography>
+                    <Button color="inherit">Login</Button>
+                </Toolbar>
+            </AppBar>
+        </div>
+    );
 }
 
-export default Nav
+ButtonAppBar.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(ButtonAppBar);
