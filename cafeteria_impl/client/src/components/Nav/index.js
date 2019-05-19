@@ -1,3 +1,3 @@
-import Nav from './Nav'
+import NavigationBar from './NavigationBar'
 
-export default Nav;
+export default NavigationBar;
