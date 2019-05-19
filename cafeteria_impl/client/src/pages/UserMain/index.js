@@ -1,3 +1,3 @@
 import UserMain from './UserMain'
 
-export default UserMain
+export default UserMain;
