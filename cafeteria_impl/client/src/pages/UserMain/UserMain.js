@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Typography, IconButton, Button } from '@material-ui/core';
+import { Grid, Typography, Button } from '@material-ui/core';
 import { Menu, Orders } from '../../components';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
@@ -18,6 +18,7 @@ export class UserMain extends Component {
             MyOrder:[]
         }
         this.addItemToOrder = this.addItemToOrder.bind(this);
+        this.makeOrder =this.makeOrder.bind(this);
     }
 
     addItemToOrder(item){
@@ -30,6 +31,7 @@ export class UserMain extends Component {
                 exist=true;
                 this.setState({MyOrder:[...this.state.MyOrder]});
             }
+            return obj;
         })
         if(!exist){
             this.setState({
@@ -37,6 +39,13 @@ export class UserMain extends Component {
             })        
         }
         console.log(this.state.MyOrder);
+    }
+
+    makeOrder(){
+        const total = this.state.MyOrder.reduce((a, b) => a + b.num * b.price, 0)
+        if(total !== 0){
+            console.log("Sending your Order to the Cafeteria Staff");
+        }
     }
 
   render() {
@@ -57,7 +66,7 @@ export class UserMain extends Component {
             </Grid>
         </Grid>
         <center>
-            <Button variant="raised" size="large">
+            <Button variant="contained" size="large" onClick={this.makeOrder}>
                 PayCheck {total} Dh
                 <AddShoppingCartIcon/>
             </Button>
