@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom/cjs/react-route
 import Home from "../Home";
 import {NavigationBar} from "../../components";
 import AdminMain from "../AdminMain";
-import UserMain from "../UserMain";
 import User from "../User";
 
 //This is going to be the distributer of the State
