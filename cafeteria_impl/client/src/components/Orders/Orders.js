@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { List, ListItem, ListItemAvatar, Avatar } from '@material-ui/core';
+import { List, ListItem, ListItemAvatar, Avatar, ListItemText, Typography } from '@material-ui/core';
 
 export class Orders extends Component {
   
@@ -8,11 +8,21 @@ export class Orders extends Component {
     return (
       <>
       <List>
-        {MyOrder.map(item=> //TODO: Implement the ListHere!
-          <ListItem button>
+        {MyOrder.map((item,index)=> //TODO: Implement the ListHere!
+          <ListItem button key={index}>
             <ListItemAvatar>
               <Avatar alt="avatar" src=""/>
             </ListItemAvatar>
+              <ListItemText
+                primary={`${item.text} x${item.num}`} 
+                secondary={
+                <>
+                  <Typography color="textPrimary">
+                    {`${item.price} DH each`}
+                  </Typography>
+                </>
+                }
+              />
           </ListItem>
           )
         }

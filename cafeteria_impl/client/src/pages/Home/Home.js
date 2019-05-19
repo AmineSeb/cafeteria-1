@@ -6,7 +6,7 @@ export class Home extends Component {
   render() {
     return (
       <>
-        <Grid container spacing={12}>
+        <Grid container spacing={8}>
             <Grid item sm={6}>
                 <Login/>
             </Grid>
